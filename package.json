@@ -1,0 +1,21 @@
+{
+  "name": "the-ark-sanctuary",
+  "version": "1.0.0",
+  "description": "A Digital Sanctuary for Forgotten Creatures - Full-stack animal adoption platform",
+  "scripts": {
+    "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:dev\"",
+    "backend:dev": "cd backend && npm run dev",
+    "frontend:dev": "cd frontend && npm start",
+    "backend:install": "cd backend && npm install",
+    "frontend:install": "cd frontend && npm install",
+    "install:all": "npm run backend:install && npm run frontend:install",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "keywords": ["animal-adoption", "sanctuary", "pets", "react", "nodejs", "mysql"],
+  "author": "The Ark Team",
+  "license": "MIT"
+}

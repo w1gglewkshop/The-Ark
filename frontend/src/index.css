@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Custom components */
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-600 text-white px-6 py-3 rounded-lg hover:bg-secondary-700 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary-600 text-primary-600 px-6 py-3 rounded-lg hover:bg-primary-600 hover:text-white transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Animations */
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .hover-lift {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Global styles */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #0ea5e9;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Chat styles */
+.chat-bubble {
+  @apply rounded-lg px-4 py-2 mb-2 max-w-xs break-words;
+}
+
+.chat-bubble.user {
+  @apply bg-primary-600 text-white ml-auto;
+}
+
+.chat-bubble.admin {
+  @apply bg-gray-200 text-gray-800 mr-auto;
+}
+
+.chat-bubble.bot {
+  @apply bg-accent-100 text-accent-800 mr-auto;
+}
+
+/* Map styles */
+.leaflet-container {
+  @apply rounded-lg;
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+/* Success story card */
+.story-card {
+  @apply bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100;
+}
+
+/* Animal card */
+.animal-card {
+  @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover-lift;
+}
+
+/* Donation progress bar */
+.progress-bar {
+  @apply w-full bg-gray-200 rounded-full h-3 overflow-hidden;
+}
+
+.progress-fill {
+  @apply h-full bg-gradient-to-r from-primary-500 to-accent-500 rounded-full transition-all duration-500;
+}
+
+/* Image gallery */
+.image-gallery {
+  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+}
+
+.gallery-item {
+  @apply aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity;
+}
+
+/* Form sections */
+.form-section {
+  @apply bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-6;
+}
+
+.form-section h3 {
+  @apply text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200;
+}
+
+/* Timeline */
+.timeline-item {
+  @apply relative pl-8 pb-8;
+}
+
+.timeline-item::before {
+  @apply absolute left-0 top-2 w-4 h-4 bg-primary-600 rounded-full;
+  content: '';
+}
+
+.timeline-item::after {
+  @apply absolute left-2 top-6 w-0.5 bg-gray-300;
+  content: '';
+  height: calc(100% - 24px);
+}
+
+.timeline-item:last-child::after {
+  display: none;
+}
+
+/* Responsive video */
+.video-responsive {
+  @apply aspect-video w-full rounded-lg overflow-hidden;
+}
+
+.video-responsive iframe {
+  @apply w-full h-full;
+}
